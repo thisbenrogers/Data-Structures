@@ -67,21 +67,13 @@ class LinkedList:
             
 
     def get_max(self):
-        if self.length == 0:
+        if self.head is None:
             return None
         else:
-            global current_node
-            global next_node
-            global biggest
             current_node = self.head
-            next_node = self.head.get_next()
-            biggest = current_node.value
-            while current_node.get_next() != None:
-                if next_node.get_value() > current_node.get_value():
-                    biggest = next_node.get_value()
-                    current_node = next_node
-                    next_node = current_node.get_next()
-                else:
-                    current_node = next_node
-                    next_node = current_node.get_next()
+            biggest = self.head.get_value()
+            while current_node is not None:
+                if current_node.get_value() > biggest:
+                    biggest = current_node.get_value()
+                current_node = current_node.get_next()
             return biggest
