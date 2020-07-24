@@ -35,7 +35,31 @@ class LinkedList:
         self.length += 1
 
     def contains(self, value):
-        pass
+        # 1. use a loop to iterate through the linked list
+        current_node = self.head
+        while current_node is not None:
+        # 2. check if the value of the current nod is the value we're searching for
+            if value == current_node.get_value():
+                return True
+            current_node = current_node.get_next()
+        return False
+        # Return true if found, falst if we reach the end of the list
+
+
+
+
+
+        # current = self.head
+        # next_node = current.get_next()
+        # while current != None:
+        #     if current.get_value() == value:
+        #         return True
+        #     else:
+        #         current = current.get_next()
+        #         next_node = current.get_next()
+        # return False
+        
+            
 
     def remove_head(self):
         if self.head is None:
