@@ -11,7 +11,7 @@ return elements in Last In First Out order.
    implementing a Stack?
 
     Ben's Answer - Very little. To change from List to LinkedList structure,
-    we would import the LinkedList, define self.storage referencing the LinkedList class,
+    we would import the LinkedList, define self.storage instantiating the LinkedList class,
     then change the self.storage method names to align with methods declared in the class
 
 """
