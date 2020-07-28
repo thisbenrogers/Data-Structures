@@ -12,6 +12,18 @@ class Node:
         # set this node's next_node reference to the passed in node
         self.next_node = new_next
 
+    def insert_after(self, value):
+        current_next = get_next()
+        self.next = ListNode(value, next_node=current_next)
+        if current_next is not None:
+            current_next.prev = self.next
+
+    def delete(self):
+        if self.prev is not None:
+            self.prev.next = self.next
+        if self.next is not None:
+            self.next.prev = self.prev
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -77,3 +89,13 @@ class LinkedList:
                     biggest = current_node.get_value()
                 current_node = current_node.get_next()
             return biggest
+
+    def reverse(self):
+        current_node = self.head 
+        prev_node = None
+        while(current_node is not None): 
+            next_node = current_node.next
+            current_node.next = prev_node 
+            prev_node = current_node 
+            current_node = next_node
+        self.head = prev_node
