@@ -49,11 +49,23 @@ class BSTNode:
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        if self.left: 
+            self.left.for_each(fn)
+        fn(self.value)
+        if self.right:
+            self.right.for_each(fn)
 
     # Part 1 Stretch -----------
-    def delete(self, value):
+    def delete(self, target):
         pass
+        # while self is not None:
+        #     if self.value == target:
+        #         # re-point child nodes
+        #     elif self.value < target:
+        #         self = self.right
+        #     elif self.value > target:
+        #         self = self.left
+        # return None
 
     # Part 2 -----------------------
 
@@ -86,15 +98,15 @@ class BSTNode:
 """
 This code is necessary for testing the `print` methods
 """
-bst = BSTNode(1)
+# bst = BSTNode(1)
 
-bst.insert(8)
-bst.insert(5)
-bst.insert(7)
-bst.insert(6)
-bst.insert(3)
-bst.insert(4)
-bst.insert(2)
+# bst.insert(8)
+# bst.insert(5)
+# bst.insert(7)
+# bst.insert(6)
+# bst.insert(3)
+# bst.insert(4)
+# bst.insert(2)
 
 # bst.bft_print()
 # bst.dft_print()
