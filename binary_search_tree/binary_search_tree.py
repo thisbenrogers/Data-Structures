@@ -66,16 +66,33 @@ class BSTNode:
             self.right.for_each(fn)
 
     # Part 1 Stretch -----------
+    def min_node(self, node):
+        current = node
+        while current.left is not None:
+            current = current.left
+        return current
+
     def delete(self, target):
         pass
-        # while self is not None:
-        #     if self.value == target:
-                # * re-point child nodes
-        #     elif self.value < target:
-        #         self = self.right
-        #     elif self.value > target:
-        #         self = self.left
-        # return None
+        while self:
+            if self.value == target.value:
+                if self.left is None:
+                    deleting = root.right
+                    self =  None
+                    return deleted
+                elif self.right is None:
+                    deleting = right.left
+                    self = None
+                    return deleted
+                deleted = self.min_node(self.right)
+                self.value = deleted.value
+                root.right = self.right.delete(deleted.value)
+                return self
+            elif self.value < target.value:
+                self = self.right
+            elif self.value > target.value:
+                self = self.left
+        return None
 
     # Part 2 -----------------------
 
