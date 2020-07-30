@@ -28,12 +28,12 @@ class BSTNode:
     # Insert the given value into the tree
     def insert(self, value):
         if self.value <= value:
-            if self.right is None:
+            if not self.right:
                 self.right = BSTNode(value)
             else:
                 self.right.insert(value)
         else:
-            if self.left is None:
+            if not self.left:
                 self.left = BSTNode(value)
             else:
                 self.left.insert(value)
@@ -119,11 +119,19 @@ class BSTNode:
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self):
-        pass
+        print(self.value)
+        if self.left:
+            self.left.pre_order_dft()
+        if self.right:
+            self.right.pre_order_dft()
 
     # Print Post-order recursive DFT
     def post_order_dft(self):
-        pass
+        if self.left:
+            self.left.post_order_dft()
+        if self.right:
+            self.right.post_order_dft()
+        print(self.value)
 
 """
 This code is necessary for testing the `print` methods
