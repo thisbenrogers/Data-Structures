@@ -73,7 +73,6 @@ class BSTNode:
         return current
 
     def delete(self, target):
-        pass
         while self:
             if self.value == target.value:
                 if self.left is None:
